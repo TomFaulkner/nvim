@@ -1,45 +1,23 @@
 return {
-
   -- copilot
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
     build = ":Copilot auth",
+    event = "InsertEnter",
     opts = {
-      suggestion = { enabled = false },
+      suggestion = {
+        enabled = true,
+        auto_trigger = true
+      },
       panel = { enabled = false },
       filetypes = {
-        markdown = true,
-	python = true,
-	lua = true,
-        help = true,
+	["*"] = true,
       },
     },
   },
 
 
-  -- copilot cmp source
-  {
-    "nvim-cmp",
-    dependencies = {
-      {
-        "zbirenbaum/copilot-cmp",
-        dependencies = "copilot.lua",
-        opts = {},
-        config = function(_, opts)
-          local copilot_cmp = require("copilot_cmp").setup()
-          copilot_cmp.setup(opts)
-        end,
-      },
-    },
-  },
-
-  {
-  "zbirenbaum/copilot-cmp",
-  dependencies = "copilot.lua",
-  opts = {},
-  config = function()
-    require("copilot_cmp").setup()
-  end
-},
+  { 'AndreM222/copilot-lualine' },
 }
+
