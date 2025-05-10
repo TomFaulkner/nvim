@@ -1,0 +1,42 @@
+# Top-most EditorConfig file
+root = true
+
+# Default settings for all files
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Lua files (Neovim plugins, configs)
+[*.lua]
+indent_style = space
+indent_size = 2
+max_line_length = 80
+
+# Vimscript files (legacy Vim configs, plugins)
+[*.vim]
+indent_style = space
+indent_size = 2
+max_line_length = 80
+
+# Neovim-specific config files
+[{init.lua,init.vim}]
+indent_style = space
+indent_size = 2
+max_line_length = 80
+
+# Vim-related files (e.g., ftplugin, syntax)
+[{ftplugin/*.lua,ftplugin/*.vim,syntax/*.vim}]
+indent_style = space
+indent_size = 2
+max_line_length = 80
+
+# Other config files you might edit (e.g., Neovim-related JSON, YAML)
+[*.{json,yaml,yml}]
+indent_style = space
+indent_size = 2
+
+# Prevent accidental application to generated or binary files
+[*.{so,dll,exe,bin}]
+editorconfig_ignore = true

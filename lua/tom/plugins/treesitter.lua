@@ -62,6 +62,17 @@ return {
 					},
 				}
 			)
+
+      local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+        parser_config.org = {
+          install_info = {
+            url = "https://github.com/milisims/tree-sitter-org",
+            revision = "main",
+            files = { "src/parser.c" },
+          },
+          -- filetype = "org",
+        }
+
 		end,
 	},
 	{
@@ -81,17 +92,17 @@ return {
 					smart_rename = {
 						enable = true,
 						keymaps = {
-							smart_rename = "grr",
+							-- smart_rename = "grr",
 						},
 					},
 					navigation = {
 						enable = true,
 						keymaps = {
-							goto_definition = "grd",
-							list_definitions = "grD",
-							list_definitions_toc = "gO",
-							goto_next_usage = "<a-*>",
-							goto_previous_usage = "<a-#>",
+							-- goto_definition = "grd",
+							-- list_definitions = "grD",
+							-- list_definitions_toc = "gO",
+							-- goto_next_usage = "<a-*>",
+							-- goto_previous_usage = "<a-#>",
 						},
 					},
 				},

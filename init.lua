@@ -1,29 +1,27 @@
+-- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
+  local ok, err = pcall(vim.fn.system, {
+    "git", "clone", "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
+    "--branch=stable",
     lazypath,
   })
+  if not ok then
+    vim.notify("Failed to install lazy.nvim: " .. err, vim.log.levels.ERROR)
+    return
+  end
 end
 vim.opt.rtp:prepend(lazypath)
 
-vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
-vim.g.maplocalleader = "\\" -- Same for `maplocalleader`
+-- Load settings
+require("tom.set")
 
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-
-vim.wo.relativenumber = true
-
-require("lazy").setup("tom.plugins")
-
+-- Plugin setup
 require("lazy").setup({
-  "folke/which-key.nvim",
+  { import = "tom.plugins" },
   { "folke/neoconf.nvim", cmd = "Neoconf" },
   "folke/neodev.nvim",
+}, {
+  checker = { enabled = true },
 })
-

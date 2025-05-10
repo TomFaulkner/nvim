@@ -19,9 +19,11 @@ return {
 				{ "<leader>h", group = "Harpoon" },
 				{ "<leader>o", group = "Orgmode" },
 				{ "<leader>c", group = "Neoconf" },
+				{ "<leader>C", group = "Copilot Chat" },
 				{ "<leader>d", group = "Neodev" },
 				{ "<leader>f", group = "file" },
-				{ "<leader>t", group = "todo" },
+				{ "<leader>t", group = "todo/terminal" },
+				{ "<leader>ft", "<cmd>Telescope toggleterm<CR>", desc = "Find Terminals" },
 			})
 		end,
 	},

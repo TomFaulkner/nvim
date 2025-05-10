@@ -1,0 +1,15 @@
+
+    opts = {
+      -- See Configuration section for options
+    },
+    config = function()
+      local wk = require("which-key")
+      wk.register({
+        C = {
+          name = "Copilot Chat",
+          o = { "<cmd>CopilotChatOpen<cr>", "Open Copilot Chat" },
+          c = { "<cmd>CopilotChatClose<cr>", "Close Copilot Chat" },
+          t = { "<cmd>CopilotChatToggle<cr>", "Toggle Copilot Chat" },
+        },
+      }, { prefix = "<leader>" })
+    end,
